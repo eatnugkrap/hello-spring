@@ -37,3 +37,18 @@
   - 컨트롤러 메소드에 `@ResponseBody` 를 붙이면 http body에 내용을 직접 반환함.
   - 이럴 경우에는 viewResolver 대신 HttpMessageConverter가 동작.
   
+## 회원 관리 예제
+
+- 일반적인 아키텍쳐
+  - ![arichtecture](./arichtecture.png)
+  - 나중에 좀 더 보자
+- controller
+  - 는 안했다.
+- domain
+  - 회원 정보와 이름을 가지고, 게터/세터만 있는 Member 클래스 생성
+- repository
+  - Member 를 save, find 하는 MemberRepository 인터페이스 생성. (DB를 정하지 않았다는 가정이 있어서.)
+  - 일단 사용할 메모리에 저장하는 형태로 MemeoryRespository를 구현한  MemoryMemberRepository 생성
+- service
+  - 비즈니스 로직이 담겨있음. 
+  - 예제 기준) 내부적으로 memberRepository를 사용? 하는데 이떄 service 에서 인스턴스를 생성하는 형태가 되면 ( 왜안좋지...? 까먹음 아무튼 ) 안되니 외부에서 생성자를 통해 주입받는 형태로 작성. DI 의존성주입
