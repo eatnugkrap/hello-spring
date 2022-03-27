@@ -90,6 +90,13 @@
   - 기본적인 findById, findAll 등 공통화 가능한 녀석들 다 만들어둠
   - 인터페이스만 만들어도 알아서 뚝딱 해줌
   
+## AOP
+
+- cross cutting concern과 core concern의 분리
+- 스프링에서는 `@Aspect` 로 지원
+- `@Component`로 컴포넌트 스캔으로 등록해도 되고
+- `@Configuration`에서 직접 등록해도 되는데, 이때에는 `@Around`에서 `@Configuration` 클래스를 대상으로 하지 않는지 확인하고, 만약 대상으로 한다면 제거해줘야 순환참조가 발생하지 않는다.
+
 ## 자바 볼것
 
 - final
