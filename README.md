@@ -69,8 +69,30 @@
 
 - 게터/세터 설정된 클래스를, 컨트롤러의 메소드의 인자로 설정해두면 스프링이 요청 값을 매핑해서 넣어준다
 
+## 스프링 DB 접근 기술
+
+- 스프링 통합 테스트
+  - 테스트에 `SpringBootTest`
+  - `@Transactional` 붙이면 커밋 안하니까 테스트하기 편함
+  - DI 받아야함.
+- jdbc
+  - 직접 커넥션 만들어서 관리하는 형태
+- jdbc template
+  - template method 패턴 이용한 jdbc 인터페이스
+- jpa
+  - orm
+  - entitiy manager 사용함
+  - 도메인 모델에 `@Entity`
+  - `@Transactional` 붙은 스코프? 에서만 돌아야 함
+  - `@Configuration` 클래스도 스프링 컨테이너가 관리하니까 DI 받을 수 있음. EntityManager 주입받아서 repository에 주입.
+- spring data jpa
+  - jpa를 또 래핑한 인터페이스
+  - 기본적인 findById, findAll 등 공통화 가능한 녀석들 다 만들어둠
+  - 인터페이스만 만들어도 알아서 뚝딱 해줌
+  
 ## 자바 볼것
 
 - final
 - package?
 - MemberRepository 를 주입받는다고 해뒀는데 어떻게 MemoryMemberRepository 를 주입받은겨..?
+- lambda, hashmap, map. list, optional, stream
